@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		334AABE5C4A1F9BF2BD089E1 /* libPods-MyZhiBo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 669E959024489F50F7940104 /* libPods-MyZhiBo.a */; };
+		7B5E61432133EAA500D6392F /* MyH264Encoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E61422133EAA500D6392F /* MyH264Encoder.m */; };
+		7B5E61452134031B00D6392F /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B5E61442134031B00D6392F /* IJKMediaFramework.framework */; };
+		7B5E614A21340DE100D6392F /* NewLiveController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E614921340DE100D6392F /* NewLiveController.m */; };
 		7B84FECA212ED16000F5CFCA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B84FEC9212ED16000F5CFCA /* AppDelegate.m */; };
 		7B84FECD212ED16000F5CFCA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B84FECC212ED16000F5CFCA /* ViewController.m */; };
 		7B84FED0212ED16000F5CFCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B84FECE212ED16000F5CFCA /* Main.storyboard */; };
@@ -16,7 +20,8 @@
 		7B84FEE2212ED18A00F5CFCA /* MyZhiBoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B84FEE1212ED18A00F5CFCA /* MyZhiBoTests.m */; };
 		7B84FEED212ED18A00F5CFCA /* MyZhiBoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B84FEEC212ED18A00F5CFCA /* MyZhiBoUITests.m */; };
 		7B84FEFD212FFAF300F5CFCA /* H264Encoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B84FEFC212FFAF300F5CFCA /* H264Encoder.m */; };
-		7B84FF01212FFB0000F5CFCA /* ViewUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B84FF00212FFB0000F5CFCA /* ViewUtils.m */; };
+		7B84FF04212FFBB500F5CFCA /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B84FF03212FFBB500F5CFCA /* VideoToolbox.framework */; };
+		7B84FF06212FFBBB00F5CFCA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B84FF05212FFBBB00F5CFCA /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +42,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5397FA50FF8933C62E159BF0 /* Pods-MyZhiBo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyZhiBo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyZhiBo/Pods-MyZhiBo.debug.xcconfig"; sourceTree = "<group>"; };
+		669E959024489F50F7940104 /* libPods-MyZhiBo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyZhiBo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B5E61412133EAA500D6392F /* MyH264Encoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyH264Encoder.h; sourceTree = "<group>"; };
+		7B5E61422133EAA500D6392F /* MyH264Encoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyH264Encoder.m; sourceTree = "<group>"; };
+		7B5E61442134031B00D6392F /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
+		7B5E614821340DE100D6392F /* NewLiveController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewLiveController.h; sourceTree = "<group>"; };
+		7B5E614921340DE100D6392F /* NewLiveController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewLiveController.m; sourceTree = "<group>"; };
 		7B84FEC5212ED16000F5CFCA /* MyZhiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyZhiBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B84FEC8212ED16000F5CFCA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7B84FEC9212ED16000F5CFCA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -55,8 +67,9 @@
 		7B84FEEE212ED18A00F5CFCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B84FEFB212FFAF300F5CFCA /* H264Encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = H264Encoder.h; sourceTree = "<group>"; };
 		7B84FEFC212FFAF300F5CFCA /* H264Encoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = H264Encoder.m; sourceTree = "<group>"; };
-		7B84FEFF212FFB0000F5CFCA /* ViewUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewUtils.h; sourceTree = "<group>"; };
-		7B84FF00212FFB0000F5CFCA /* ViewUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewUtils.m; sourceTree = "<group>"; };
+		7B84FF03212FFBB500F5CFCA /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		7B84FF05212FFBBB00F5CFCA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		E5AEC8A7748D1372EAEA8CFD /* Pods-MyZhiBo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyZhiBo.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyZhiBo/Pods-MyZhiBo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +77,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B84FF06212FFBBB00F5CFCA /* AVFoundation.framework in Frameworks */,
+				7B84FF04212FFBB500F5CFCA /* VideoToolbox.framework in Frameworks */,
+				334AABE5C4A1F9BF2BD089E1 /* libPods-MyZhiBo.a in Frameworks */,
+				7B5E61452134031B00D6392F /* IJKMediaFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +101,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		24A80735DC70C07FD2DC1B4D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5397FA50FF8933C62E159BF0 /* Pods-MyZhiBo.debug.xcconfig */,
+				E5AEC8A7748D1372EAEA8CFD /* Pods-MyZhiBo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7B5E614621340DB700D6392F /* Live */ = {
+			isa = PBXGroup;
+			children = (
+				7B5E614821340DE100D6392F /* NewLiveController.h */,
+				7B5E614921340DE100D6392F /* NewLiveController.m */,
+			);
+			path = Live;
+			sourceTree = "<group>";
+		};
+		7B5E614721340DC200D6392F /* Play */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Play;
+			sourceTree = "<group>";
+		};
 		7B84FEBC212ED16000F5CFCA = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +133,8 @@
 				7B84FEE0212ED18A00F5CFCA /* MyZhiBoTests */,
 				7B84FEEB212ED18A00F5CFCA /* MyZhiBoUITests */,
 				7B84FEC6212ED16000F5CFCA /* Products */,
+				7B84FF02212FFBB500F5CFCA /* Frameworks */,
+				24A80735DC70C07FD2DC1B4D /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,6 +151,9 @@
 		7B84FEC7212ED16000F5CFCA /* MyZhiBo */ = {
 			isa = PBXGroup;
 			children = (
+				7B5E614721340DC200D6392F /* Play */,
+				7B5E614621340DB700D6392F /* Live */,
+				7B5E61442134031B00D6392F /* IJKMediaFramework.framework */,
 				7B84FEFE212FFAF700F5CFCA /* Utils */,
 				7B84FEFA212FFAE900F5CFCA /* Encoder */,
 				7B84FEC8212ED16000F5CFCA /* AppDelegate.h */,
@@ -145,6 +192,8 @@
 			children = (
 				7B84FEFB212FFAF300F5CFCA /* H264Encoder.h */,
 				7B84FEFC212FFAF300F5CFCA /* H264Encoder.m */,
+				7B5E61412133EAA500D6392F /* MyH264Encoder.h */,
+				7B5E61422133EAA500D6392F /* MyH264Encoder.m */,
 			);
 			path = Encoder;
 			sourceTree = "<group>";
@@ -152,10 +201,18 @@
 		7B84FEFE212FFAF700F5CFCA /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				7B84FEFF212FFB0000F5CFCA /* ViewUtils.h */,
-				7B84FF00212FFB0000F5CFCA /* ViewUtils.m */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		7B84FF02212FFBB500F5CFCA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7B84FF05212FFBBB00F5CFCA /* AVFoundation.framework */,
+				7B84FF03212FFBB500F5CFCA /* VideoToolbox.framework */,
+				669E959024489F50F7940104 /* libPods-MyZhiBo.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,9 +222,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7B84FEF1212ED18A00F5CFCA /* Build configuration list for PBXNativeTarget "MyZhiBo" */;
 			buildPhases = (
+				53ADF5F57E52E487BB9D4F45 /* [CP] Check Pods Manifest.lock */,
 				7B84FEC1212ED16000F5CFCA /* Sources */,
 				7B84FEC2212ED16000F5CFCA /* Frameworks */,
 				7B84FEC3212ED16000F5CFCA /* Resources */,
+				EC365CA74C0146993A4AFF31 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -283,16 +342,56 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		53ADF5F57E52E487BB9D4F45 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyZhiBo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC365CA74C0146993A4AFF31 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MyZhiBo/Pods-MyZhiBo-resources.sh",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyBoardManager/Resources/IQKeyboardManager.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyZhiBo/Pods-MyZhiBo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7B84FEC1212ED16000F5CFCA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				7B84FEFD212FFAF300F5CFCA /* H264Encoder.m in Sources */,
-				7B84FF01212FFB0000F5CFCA /* ViewUtils.m in Sources */,
 				7B84FECD212ED16000F5CFCA /* ViewController.m in Sources */,
 				7B84FED8212ED18A00F5CFCA /* main.m in Sources */,
 				7B84FECA212ED16000F5CFCA /* AppDelegate.m in Sources */,
+				7B5E614A21340DE100D6392F /* NewLiveController.m in Sources */,
+				7B5E61432133EAA500D6392F /* MyH264Encoder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,10 +558,15 @@
 		};
 		7B84FEF2212ED18A00F5CFCA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5397FA50FF8933C62E159BF0 /* Pods-MyZhiBo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XU4U3RVPRN;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MyZhiBo",
+				);
 				INFOPLIST_FILE = MyZhiBo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -476,10 +580,15 @@
 		};
 		7B84FEF3212ED18A00F5CFCA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5AEC8A7748D1372EAEA8CFD /* Pods-MyZhiBo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XU4U3RVPRN;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MyZhiBo",
+				);
 				INFOPLIST_FILE = MyZhiBo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

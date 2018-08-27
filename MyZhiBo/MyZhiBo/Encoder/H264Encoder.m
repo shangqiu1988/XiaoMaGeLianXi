@@ -49,7 +49,7 @@ NSUInteger averageBitRate = 800 * 1024; // 800kbps
         
         
         // 创建编码
-        OSStatus status = VTCompressionSessionCreate(NULL, width, height, kCMVideoCodecType_H264, sessionAttributes, NULL, NULL, didCompressH264, (__bridge void *)(self),  &encodeeSssion);
+        OSStatus status = VTCompressionSessionCreate(NULL, width, height, kCMVideoCodecType_H264, sessionAttributes, NULL, NULL, didCompressH264, (__bridge void *)(self),  &self->encodeeSssion);
         NSLog(@"H264: VTCompressionSessionCreate %d", (int)status);
         
         if (status != 0)
@@ -59,24 +59,24 @@ NSUInteger averageBitRate = 800 * 1024; // 800kbps
         }
         
         /// 最大关键帧间隔，可设定为 fps 的2倍，影响一个 gop 的大小
-        VTSessionSetProperty(encodeeSssion, kVTCompressionPropertyKey_MaxKeyFrameInterval, (__bridge CFTypeRef)@(gop));
+        VTSessionSetProperty(self->encodeeSssion, kVTCompressionPropertyKey_MaxKeyFrameInterval, (__bridge CFTypeRef)@(gop));
         /// 一个GOP的时间间隔
-        VTSessionSetProperty(encodeeSssion, kVTCompressionPropertyKey_MaxKeyFrameIntervalDuration, (__bridge CFTypeRef)@(gop/videoFrameRate));
-        VTSessionSetProperty(encodeeSssion, kVTCompressionPropertyKey_ExpectedFrameRate, (__bridge CFTypeRef)@(videoFrameRate));
+        VTSessionSetProperty(self->encodeeSssion, kVTCompressionPropertyKey_MaxKeyFrameIntervalDuration, (__bridge CFTypeRef)@(gop/videoFrameRate));
+        VTSessionSetProperty(self->encodeeSssion, kVTCompressionPropertyKey_ExpectedFrameRate, (__bridge CFTypeRef)@(videoFrameRate));
         /// /// 视频的码率，单位是 bps
-        VTSessionSetProperty(encodeeSssion, kVTCompressionPropertyKey_AverageBitRate, (__bridge CFTypeRef)@(averageBitRate));
+        VTSessionSetProperty(self->encodeeSssion, kVTCompressionPropertyKey_AverageBitRate, (__bridge CFTypeRef)@(averageBitRate));
         
         NSArray *limit = @[@(averageBitRate * 1.5/8), @(1)];
         // 设置码率的最高限制，不超过平均码率的1.5倍，因为这里的单位是byte，所以除以8，这是为了防止某一秒的码率超过限制
-        VTSessionSetProperty(encodeeSssion, kVTCompressionPropertyKey_DataRateLimits, (__bridge CFArrayRef)limit);
-        VTSessionSetProperty(encodeeSssion, kVTCompressionPropertyKey_RealTime, kCFBooleanTrue);// 实时编码
-        VTSessionSetProperty(encodeeSssion, kVTCompressionPropertyKey_ProfileLevel, kVTProfileLevel_H264_Main_AutoLevel);// 编码等级
-        VTSessionSetProperty(encodeeSssion, kVTCompressionPropertyKey_AllowFrameReordering, kCFBooleanTrue); // 是否在编码中使用B帧，因为B帧是双向预测帧，所以编码时间顺序和展示时间顺序不同，设置为true压缩率会更高
+        VTSessionSetProperty(self->encodeeSssion, kVTCompressionPropertyKey_DataRateLimits, (__bridge CFArrayRef)limit);
+        VTSessionSetProperty(self->encodeeSssion, kVTCompressionPropertyKey_RealTime, kCFBooleanTrue);// 实时编码
+        VTSessionSetProperty(self->encodeeSssion, kVTCompressionPropertyKey_ProfileLevel, kVTProfileLevel_H264_Main_AutoLevel);// 编码等级
+        VTSessionSetProperty(self->encodeeSssion, kVTCompressionPropertyKey_AllowFrameReordering, kCFBooleanTrue); // 是否在编码中使用B帧，因为B帧是双向预测帧，所以编码时间顺序和展示时间顺序不同，设置为true压缩率会更高
         
         // 基于上下文的自适应可变长编码 和 基于上下文的自适应二进制算术编码 选择熵编码方式
-        VTSessionSetProperty(encodeeSssion, kVTCompressionPropertyKey_H264EntropyMode, kVTH264EntropyMode_CABAC);
+        VTSessionSetProperty(self->encodeeSssion, kVTCompressionPropertyKey_H264EntropyMode, kVTH264EntropyMode_CABAC);
         
-        VTCompressionSessionPrepareToEncodeFrames(encodeeSssion);
+        VTCompressionSessionPrepareToEncodeFrames(self->encodeeSssion);
         
         
         
@@ -87,21 +87,21 @@ NSUInteger averageBitRate = 800 * 1024; // 800kbps
 - (void)encode:(CMSampleBufferRef)sampleBuffer {
     dispatch_sync(workQueue, ^{
         
-        frameCount++;
+        self->frameCount++;
         // Get the CV Image buffer
         CVImageBufferRef imageBuffer = (CVImageBufferRef)CMSampleBufferGetImageBuffer(sampleBuffer);
         //            CVPixelBufferRef pixelBuffer = (CVPixelBufferRef)CMSampleBufferGetImageBuffer(sampleBuffer);
         
         // Create properties
-        CMTime presentationTimeStamp = CMTimeMake(frameCount, (int32_t)videoFrameRate);
+        CMTime presentationTimeStamp = CMTimeMake(self->frameCount, (int32_t)videoFrameRate);
         CMTime duration = CMTimeMake(1, (int32_t)videoFrameRate);
         VTEncodeInfoFlags flags;
         NSDictionary *properties = nil;
-        if (frameCount % (int32_t)gop == 0) {
+        if (self->frameCount % (int32_t)gop == 0) {
             properties = @{(__bridge NSString *)kVTEncodeFrameOptionKey_ForceKeyFrame: @YES};
         }
         // Pass it to the encoder
-        OSStatus statusCode = VTCompressionSessionEncodeFrame(encodeeSssion,
+        OSStatus statusCode = VTCompressionSessionEncodeFrame(self->encodeeSssion,
                                                               imageBuffer,
                                                               presentationTimeStamp,
                                                               duration,
@@ -112,9 +112,9 @@ NSUInteger averageBitRate = 800 * 1024; // 800kbps
             NSLog(@"H264: VTCompressionSessionEncodeFrame failed with %d", (int)statusCode);
             
             // End the session
-            VTCompressionSessionInvalidate(encodeeSssion);
-            CFRelease(encodeeSssion);
-            encodeeSssion = NULL;
+            VTCompressionSessionInvalidate(self->encodeeSssion);
+            CFRelease(self->encodeeSssion);
+            self->encodeeSssion = NULL;
             return;
         }
         NSLog(@"H264: VTCompressionSessionEncodeFrame Success");

@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "H264Encoder.h"
 @interface AppDelegate ()
 
 @end
